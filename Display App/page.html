@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SummerTech Camp</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Add a class to hide inactive sections */
+      .hidden-section {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>SummerTech Camp</h1>
+    </header>
+
+    <nav>
+      <a href="#home">Home</a> | <a href="#schedule">Schedule</a> |
+      <a href="#events">Events</a> | <a href="#merch">Merch</a>
+    </nav>
+
+    <!-- Add a container for all sections -->
+    <div id="sections-container">
+      <section id="home" class="hidden-section">
+        <h2>Welcome to SummerTech</h2>
+        <p>Weather</p>
+        <p>Theme</p>
+        <p>Featured Events</p>
+        <img src="summertech log.png" alt="SummerTech Camp" />
+      </section>
+
+      <section id="schedule" class="hidden-section">
+        <h2>Daily Schedule</h2>
+        <p>List some of the exciting activities that campers can enjoy.</p>
+      </section>
+
+      <section id="events" class="hidden-section">
+        <h2>Today's Events</h2>
+        <!-- Table to display events -->
+        <table id="events-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Event Name</th>
+              <th>Location</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+
+      <section id="merch" class="hidden-section">
+        <h2>Check out our Merch</h2>
+        <p>Pictures of Merch</p>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 SummerTech Camp. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // Get all sections and the container
+      const sections = document.querySelectorAll("#sections-container section");
+      const sectionsContainer = document.getElementById("sections-container");
+
+      let currentSectionIndex = 0;
+
+      // Function to hide all sections and show the current one
+      function showCurrentSection() {
+        sections.forEach((section, index) => {
+          if (index === currentSectionIndex) {
+            section.classList.remove("hidden-section");
+          } else {
+            section.classList.add("hidden-section");
+          }
+        });
+      }
+
+      // Function to switch to the next section
+      function nextSection() {
+        currentSectionIndex = (currentSectionIndex + 1) % sections.length;
+        showCurrentSection();
+      }
+
+      // Initial display
+      showCurrentSection();
+
+      // Set an interval to switch sections every 15 seconds
+      const intervalId = setInterval(nextSection, 15000);
+
+      // Fetch and parse CSV data
+      function fetchCSVData() {
+        fetch("events.csv")
+          .then((response) => response.text())
+          .then((csvData) => {
+            const events = parseCSV(csvData);
+            displayEvents(events);
+          })
+          .catch((error) => console.error("Error fetching CSV:", error));
+      }
+
+      // Parse CSV data into an array of objects
+      function parseCSV(csv) {
+        const lines = csv.trim().split("\n");
+        const headers = lines[0].split(",");
+        return lines.slice(1).map((line) => {
+          const values = line.split(",");
+          return headers.reduce((event, header, index) => {
+            event[header] = values[index];
+            return event;
+          }, {});
+        });
+      }
+
+      // Display events in the table
+      function displayEvents(events) {
+        const tableBody = document.querySelector("#events-table tbody");
+        tableBody.innerHTML = "";
+        events.forEach((event) => {
+          const row = tableBody.insertRow();
+          Object.values(event).forEach((value) => {
+            const cell = row.insertCell();
+            cell.textContent = value;
+          });
+        });
+      }
+
+      // Fetch CSV data and display events on page load
+      fetchCSVData();
+    </script>
+  </body>
+</html>
