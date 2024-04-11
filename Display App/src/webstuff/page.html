@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SummerTech Camp</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body id = "body">
+    <!-- Header Container for Weather and Time -->
+    <div id="header-container">
+      <!-- Title Section -->
+      <section id="title-section">
+        <h1>SummerTech</h1>
+        <h2 id ="week-letter">Week P</h2>
+      </section>
+
+      <!-- Weather Section -->
+      <section id="weather-section">
+        <section id="weather0">
+          <img id="weather-img0" src="" alt="Current Weather" />
+          <p id="weather-text0">Loading...</p>
+        </section>
+        <section id="weather1">
+          <img id="weather-img1" src="" alt="Current Weather" />
+          <p id="weather-text1">Loading...</p>
+        </section>
+        <section id="weather2">
+          <img id="weather-img2" src="" alt="Current Weather" />
+          <p id="weather-text2">Loading...</p>
+        </section>
+        </section>
+      </section>
+      <section id="spacer-section"></section>
+      <!-- Time Section -->
+      <section id="time-section">
+        <h2 id="current-weekday">Date and Time Loading...</h2>
+        <p id="current-time">Loading...</p>
+      </section>
+    </div>
+
+    <!-- Add a container for all page displays -->
+    <div id="sections-container">
+      <section id="home" class="text-box hidden-section">
+        <h2  class = "section-title">Welcome to SummerTech</h2>
+        <p>Weather</p>
+        <p>Theme</p>
+        <p>Featured Events</p>
+        <img src="../images/summertech log.png" alt="SummerTech Camp" />
+      </section>
+
+      <section id="schedule" class="text-box hidden-section">
+        <h2 class = "section-title">Daily Schedule</h2>
+        <p>9 AM - Check In</p>
+        <p>9 AM - Check In</p>
+        <p>9 AM - Check In</p>
+        <p>9 AM - Check In</p>
+        <p>9 AM - Check In</p>
+        <p>9 AM - Check In</p>
+      </section>
+      
+      <!-- class="hidden-section" -->
+      <section id="events-section" class="text-box" >
+        <h2  class = "section-title">Today's Events</h2>
+        <!-- Table to display events -->
+        <div id = "events-display">
+        </div>
+      </section>
+
+      <section id="merch" class="text-box hidden-section">
+        <h2  class = "section-title">Check out our Merch</h2>
+        <p>Pictures of Merch</p>
+      </section>
+    </div>
+
+    
+
+    <script type="module" src="..\scripts\handler.js"></script>
+
+  
+  </body>
+</html>

@@ -1,0 +1,120 @@
+/* styles.css */
+
+#body {
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    height: 100%;
+}
+
+.text-box {
+  background-color: rgba(255, 255, 255, 0.3); /* Adjust the alpha channel for transparency */
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.section-title {
+  background-color: yellow;
+  border-radius: 10px;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Style for weather and time sections */
+#header-container {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#header-container h1 {
+  font-size: xx-large;
+}
+
+#title-section {
+  padding: 10px;
+  margin: 10px;
+  margin-left: 20px;
+  text-align: left;
+  flex: 2;
+}
+
+#time-section {
+  padding: 10px;
+  margin: 10px;
+  text-align: right;
+  flex: 1;
+}
+
+#weather-section {
+  padding: 10px;
+  margin: 10px;
+  margin-top: 0px;
+  padding-top: 15px;
+
+
+  text-align: center;
+  flex: 3;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+#spacer-section {
+  padding: 10px;
+  margin: 10px;
+  flex: 1;
+}
+
+
+
+#events-display {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.event {
+  background-color: rgba(128,128,128, 0.7);
+  color: black;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+.event-name {
+  color: red;
+}
+.event-staff {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.event-staff > * {
+  margin-top: 0px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+}
+
+
+
+
+/* Add a class to hide inactive sections */
+.hidden-section {
+    display: none;
+  }
+
